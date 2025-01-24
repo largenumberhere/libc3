@@ -1,5 +1,3 @@
+# Libc3
 
-## Project structure
-The xmake build system is used for this project
-
-In the root folder, 
+This much like the libc2 project except it'll be more organised
