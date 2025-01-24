@@ -1,0 +1,5 @@
+.vscode
+.xmake
+build/
+gcm.cache/
+tmp/build/*
