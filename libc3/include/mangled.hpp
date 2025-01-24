@@ -1,8 +1,16 @@
 // Expose the unmangled function names for testing purposes
-#ifndef _LIBC2_MANGLED
-#define _LIBC2_MANGLED 1
+#ifndef LIBC2_MANGLED
+#define LIBC2_MANGLED
 #include "ints.hpp"
 
-extern "C" size_t __libc3_strlen(const char *string);
+#ifdef cplusplus 
+extern "C" {
+#endif
+    size_t libc3Strlen(const char *string);    //NOLINT(bugprone-reserved-identifier)
+
+
+#ifdef cplusplus 
+}
+#endif
 
 #endif

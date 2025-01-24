@@ -32,6 +32,7 @@ CheckOptions:
 
   # functions
   readability-identifier-naming.FunctionCase: 'camelBack'
+
   
   # structs
   readability-identifier-naming.StructCase: 'lower_case'

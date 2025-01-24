@@ -1,4 +1,13 @@
 #include "ints.hpp"
 #include "mangled.hpp"
 
-size_t strlen(const char *string) { return __libc3_strlen(string); }
+#ifdef cplusplus
+extern "C" {
+#endif
+
+    size_t strlen(const char *string) { return libc3Strlen(string); }
+    void _start();
+
+#ifdef cplusplus
+}
+#endif

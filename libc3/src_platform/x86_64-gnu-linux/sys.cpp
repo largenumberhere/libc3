@@ -1,1 +1,1 @@
-int a() { return 0; }
+int sysExit() { while(true) {} }
