@@ -1,5 +1,5 @@
 add_plugindirs("xmake_plugins")
-
+set_policy("check.auto_ignore_flags", false)
 
 function setupTest() 
     add_deps("libc3")
@@ -7,7 +7,7 @@ function setupTest()
     set_default(false)
 end
 
-target("libc3")    
+target("libc3")   
     add_headerfiles("./libc3/include/sys.hpp")    
     print(is_arch("x86_64"), is_plat("linux"))
     if is_arch("x86_64") and is_plat("linux") then
@@ -15,7 +15,9 @@ target("libc3")
     end
     set_kind("static")
     add_files("libc3/src/**.cpp")
-
+    
+    add_cxxflags("-ffreestanding", "-nostdlib", "-nostartfiles")
+    add_cflags("-ffreestanding", "-nostdlib", "-nostartfiles")
     set_languages("cxx23", "c11")
     add_headerfiles("./libc3/include/mangled.hpp")
     add_headerfiles("./libc3/include/unmangled.hpp") 
@@ -32,11 +34,9 @@ target("strlen1a")
 -- test without standard library
 target("strlen1b")
     setupTest()
-    
-    add_ldflags("-nostdlib")
-    add_ldflags("-nostartfiles")
-    add_ldflags("-ffreestanding")
-
+    add_headerfiles("./libc3/include/unmangled.hpp") 
+    add_ldflags("-nostartfiles", "-ffreestanding", "-nostdlib")
+    add_cflags("-ffreestanding", "-nostdlib")
     add_files("./unit_tests/strlen1b.c")
 
     add_tests("strlen1b")
