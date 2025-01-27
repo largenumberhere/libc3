@@ -18,6 +18,9 @@ extern "C" {
 
     }
     void _start();
+    void exit(int exit_code) {
+        libc3Exit(exit_code);
+    }
 
 #ifdef __cplusplus
 }
