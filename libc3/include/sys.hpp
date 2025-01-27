@@ -1,10 +1,10 @@
-#ifdef cplusplus
+#ifdef __cplusplus
     extern "C" {
 #endif
 
-int sysExit();
+void libc3SysExit(int exit_code);
 void _start();
 
-#ifdef cplusplus
+#ifdef __cplusplus
     }
 #endif

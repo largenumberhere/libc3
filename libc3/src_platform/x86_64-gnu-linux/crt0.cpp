@@ -1,5 +1,12 @@
 #include "../../include/sys.hpp"
+#include "../../include/ints.hpp"
+#include "../../include/sys.hpp"
 
-void _start() {
-    while (true) {}
+extern "C" void _start() {
+    __asm__(
+        ".extern main\n\t"
+        "call main\n\t"
+    );
+
+    libc3SysExit(0);
 }

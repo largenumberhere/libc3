@@ -32,13 +32,14 @@ target("strlen1a")
 -- test without standard library
 target("strlen1b")
     setupTest()
-    add_cxxflags("gcc::-ffreestanding -nostdlib -nostartfiles")
-    add_files("./unit_tests/strlen1b.c")
+    
     add_ldflags("-nostdlib")
     add_ldflags("-nostartfiles")
-    add_tests("strlen1b")
+    add_ldflags("-ffreestanding")
 
-    
-    -- add_tests("strlen1b", {pass_outputs="ok"})
+    add_files("./unit_tests/strlen1b.c")
+
+    add_tests("strlen1b")
+    add_tests("strlen1b", {pass_outputs="ok"})
     
 
