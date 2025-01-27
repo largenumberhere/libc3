@@ -11,7 +11,7 @@ int main() {
   CHECK(strlen("mrow") == 4);
   CHECK(strlen("") == 0);
   CHECK(strlen("aaaaaaaaaaaaaaaaaaaa") == 20);
-
+  
   printf("ok");
   return 0;
 }

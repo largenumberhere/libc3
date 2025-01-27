@@ -1,3 +1,5 @@
-extern "C" int _start() {
+#include "../../include/sys.hpp"
+
+void _start() {
     while (true) {}
 }

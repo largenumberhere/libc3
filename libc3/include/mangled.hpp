@@ -2,6 +2,7 @@
 #ifndef LIBC2_MANGLED
 #define LIBC2_MANGLED
 #include "ints.hpp"
+#include "sys.hpp"
 
 #ifdef cplusplus 
 extern "C" {
