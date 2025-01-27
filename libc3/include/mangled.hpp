@@ -5,13 +5,13 @@
 #include "sys.hpp"
 #include <stdarg.h>
 
-#ifdef __cplusplus 
+#ifdef __cplusplus
 extern "C" {
 #endif
-    size_t libc3Strlen(const char *string);    //NOLINT(bugprone-reserved-identifier)
-    size_t libc3PrintfA(const char *fmt, va_list *args);
-    void libc3Exit(int exit_code);
-#ifdef __cplusplus 
+size_t libc3Strlen(const char *string); // NOLINT(bugprone-reserved-identifier)
+size_t libc3PrintfA(const char *fmt, va_list *args);
+void libc3Exit(int exit_code);
+#ifdef __cplusplus
 }
 #endif
 

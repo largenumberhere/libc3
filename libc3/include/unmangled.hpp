@@ -5,22 +5,19 @@
 extern "C" {
 #endif
 
-    size_t strlen(const char *string) { return libc3Strlen(string); }
-    int printf(const char *fmt, ...) {
-        va_list ap;
-        va_start(ap ,fmt);
+size_t strlen(const char *string) { return libc3Strlen(string); }
+int printf(const char *fmt, ...) {
+  va_list ap;
+  va_start(ap, fmt);
 
-        size_t out = libc3PrintfA(fmt, &ap);
+  size_t out = libc3PrintfA(fmt, &ap);
 
-        va_end(ap);
+  va_end(ap);
 
-        return  (int)out;
-
-    }
-    void _start();
-    void exit(int exit_code) {
-        libc3Exit(exit_code);
-    }
+  return (int)out;
+}
+void _start();
+void exit(int exit_code) { libc3Exit(exit_code); }
 
 #ifdef __cplusplus
 }

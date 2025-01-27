@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int main() {
   CHECK(libc3Strlen("mrow") == 4);
   CHECK(libc3Strlen("") == 0);
