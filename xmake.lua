@@ -9,7 +9,7 @@ end
 
 target("libc3")   
     add_headerfiles("./libc3/include/sys.hpp")    
-    print(is_arch("x86_64"), is_plat("linux"))
+
     if is_arch("x86_64") and is_plat("linux") then
         add_files("./libc3/src_platform/x86_64-gnu-linux/*.cpp")
     end
