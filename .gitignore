@@ -3,3 +3,4 @@
 build/
 gcm.cache/
 tmp/build/*
+tmp/*

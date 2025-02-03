@@ -11,6 +11,12 @@ extern "C" {
 size_t libc3Strlen(const char *string); // NOLINT(bugprone-reserved-identifier)
 size_t libc3PrintfA(const char *fmt, va_list *args);
 void libc3Exit(int exit_code);
+void *libc3Malloc(size_t size);
+void libc3Free(void* ptr);
+
+// internals
+void libc3WriteStdout(const char* s);
+
 #ifdef __cplusplus
 }
 #endif
