@@ -30,7 +30,8 @@ enum BYTESIZES : size_t {
 
 
 
-extern "C" class Bucket {
+
+class Bucket {
     private: 
         BUCKET_KIND _bucketKind;
         Libc3RawArray<char> _allocatedBuffer;
@@ -82,17 +83,33 @@ extern "C" class Bucket {
 
 };
 
-#define MAX_BUCKETS (16384)
+// template class Libc3Array<Bucket*>;
+
+template class Libc3Array<Bucket*>;
+
+#define MAX_BUCKETS (100)
 
 
-static Bucket* arr[MAX_BUCKETS] = {0};
-static Libc3Array a = Libc3Array<Bucket*> ((Bucket**)arr, MAX_BUCKETS);
+static Bucket (arr [MAX_BUCKETS]);
+static Libc3Array<Bucket> buckets = Libc3Array<Bucket>();
+static bool firstRun = true;
+
 
 extern "C" void *libc3Malloc(size_t size) {
+
+    libc3Memset((void*)arr, 0, sizeof(Bucket) * MAX_BUCKETS);
+// 
+    if (firstRun) {
+        firstRun = false;
+        buckets = Libc3Array<Bucket>((Bucket*)arr, MAX_BUCKETS);
+    }
+
     for (int i = 0; i < MAX_BUCKETS; i++) {
-        Bucket* b =  a.get(i);
-        if (b !=NULL) {
-            libc3Exit(2);
+        Bucket b =  buckets.get(i);
+        bool init = b.isInitalized();
+        
+        if (init) {
+            libc3WriteStdout("Instantiated\n");
         }
     }
 
