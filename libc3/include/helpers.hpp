@@ -149,7 +149,7 @@ template <typename T> void Libc3Array<T>::boundsAssert(size_t index) {
 
 template <typename T>
 Libc3Array<T>::Libc3Array(T *buffer, size_t buffer_len)
-    : _len(0), _rawArray(buffer, buffer_len) {}
+    : _len(buffer_len), _rawArray(buffer, buffer_len) {}
 
 template <typename T> void Libc3Array<T>::push(T t) {
 
