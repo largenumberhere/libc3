@@ -67,7 +67,7 @@ public:
       break;
     case BUCKET_KERNELALLOC:
       TODO();
-      ;
+
       break;
     default:
       UNREACHABLE();
@@ -77,7 +77,7 @@ public:
   }
 
   bool isInitalized() {
-    if (_bucketKind == BUCKET_UNINITALIZED) {
+    if (!_bucketKind) {
       return false;
     }
 
@@ -104,7 +104,9 @@ public:
 
 template class Libc3Array<Bucket *>;
 
-#define MAX_BUCKETS (100)
+enum {
+MAX_BUCKETS = (100)
+};
 
 static Bucket arr[MAX_BUCKETS];
 static Libc3Array<Bucket> buckets = Libc3Array<Bucket>();
