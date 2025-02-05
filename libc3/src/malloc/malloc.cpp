@@ -117,6 +117,11 @@ extern "C" void *libc3Malloc(size_t size) {
     }
   }
 
+  buckets = Libc3Array<Bucket> ((Bucket*)arr, 0);
+  Bucket invalid = buckets.get(0);
+
+  
+
   return NULL;
 }
 extern "C" void libc3Free(void *ptr) { return; }
