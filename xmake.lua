@@ -11,14 +11,15 @@ function setupTest()
 end
 
 target("libc3")   
+
+    if is_arch("x86_64") and is_plat("linux") then
+        add_files("./libc3/src_platform/x86_64-gnu-linux/*.cpp")
+    end
     add_headerfiles("./libc3/include/sys.hpp")    
     add_headerfiles("./libc3/include/helpers.hpp")
     add_headerfiles("./libc3/include/ints.hpp")
     add_headerfiles("./libc3/include/mangled.hpp")
 
-    if is_arch("x86_64") and is_plat("linux") then
-        add_files("./libc3/src_platform/x86_64-gnu-linux/*.cpp")
-    end
     set_kind("static")
     add_files("libc3/src/**.cpp")
     

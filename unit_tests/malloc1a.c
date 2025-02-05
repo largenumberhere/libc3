@@ -10,14 +10,13 @@
 #define KILOBYTE 1000
 #define MEGABYTE 1000000
 int main() {
-  
+
   for (int i = 0; i < 100; i++) {
-    void * a =  libc3Malloc(10);
+    void *a = libc3Malloc(10);
     memset(a, 0, 10);
-    
+
     void *b = libc3Malloc(100);
     memset(b, 0, 100);
-
 
     void *c = libc3Malloc(KILOBYTE);
     memset(c, 0, KILOBYTE);
@@ -26,7 +25,7 @@ int main() {
     memset(d, 0, MEGABYTE);
 
     void *e = libc3Malloc(MEGABYTE * 100);
-    memset(d, 0, MEGABYTE*100);
+    memset(d, 0, MEGABYTE * 100);
 
     // printf("%i %i %i %i %i", a, b, c, d, e);
     fprintf(stderr, "%i %i %i %i %i", a, b, c, d, e);
@@ -36,9 +35,7 @@ int main() {
     libc3Free(c);
     libc3Free(d);
     libc3Free(e);
-
   }
-
 
   printf("ok");
   return 0;
