@@ -22,11 +22,12 @@ target("libc3")
 
     set_kind("static")
     add_files("libc3/src/**.cpp")
-    
     add_cxxflags("-ffreestanding", "-nostdlib", "-nostartfiles")
     add_cflags("-ffreestanding", "-nostdlib", "-nostartfiles")
     set_languages("cxx23", "c11") 
-    
+    add_ldflags("-g")
+    add_cflags("-g")
+    add_cxxflags("-g")
 
 -- test with standard library
 target("strlen1a")
@@ -35,7 +36,7 @@ target("strlen1a")
     add_headerfiles("./libc3/include/helpers.hpp")
     add_headerfiles("./libc3/include/ints.hpp")
 
-    add_files("./unit_tests/strlen1a.c")
+    add_files("./unit_tests/strlen1a.c" )
     add_tests("strlen1a", {pass_outputs="ok"})
     add_headerfiles("./libc3/include/mangled.hpp")
     -- add_ldflags("-stdlib=libstdc++", {force = true})
