@@ -77,7 +77,7 @@ public:
   }
 
   bool isInitalized() {
-    if (!_bucketKind) {
+    if (_bucketKind == BUCKET_UNINITALIZED) {
       return false;
     }
 
