@@ -11,6 +11,7 @@
 #define MEGABYTE 1000000
 int main() {
 
+  // warning: this can use 8 gigabytes for the backup allocator!
   for (int i = 0; i < 100; i++) {
     void *a = libc3Malloc(10);
     memset(a, 0, 10);
@@ -25,7 +26,7 @@ int main() {
     memset(d, 0, MEGABYTE);
 
     void *e = libc3Malloc(MEGABYTE * 100);
-    memset(d, 0, MEGABYTE * 100);
+    memset(e, 0, MEGABYTE * 100);
 
     // printf("%i %i %i %i %i", a, b, c, d, e);
     fprintf(stderr, "%i %i %i %i %i", a, b, c, d, e);
