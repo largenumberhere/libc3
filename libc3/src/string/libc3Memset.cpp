@@ -2,7 +2,7 @@
 
 extern "C" void *libc3Memset(void *s, int c, size_t n) {
   for (ssize_t i = 0; i < n; i++) {
-    ((char *)s)[i] = (char)i;
+    ((char *)s)[i] = (char)c;
   }
 
   return s;

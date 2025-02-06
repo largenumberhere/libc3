@@ -185,8 +185,8 @@ template <typename T> void Libc3Array<T>::set(size_t index, T t) {
   this->_rawArray.set(index, t);
 }
 
-template <typename T> Libc3Array<T>::Libc3Array() : _rawArray() {
-  _len = 0;
+template <typename T> Libc3Array<T>::Libc3Array() : _rawArray(), _len(0) {
+  // TODO: what is this supposed to be used for?
   // _rawArray = Libc3RawArray();
 }
 

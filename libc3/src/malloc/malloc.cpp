@@ -18,8 +18,10 @@
 enum BUCKET_KIND : uint8_t {
   BUCKET_UNINITALIZED,
   BUCKET_4K,
+  BUCKET_16K,
   BUCKET_64K,
   BUCKET_1M,
+  BUCKET_2M,
   BUCKET_16M,
   BUCKET_64M,
   BUCKET_KERNELALLOC
@@ -45,11 +47,17 @@ public:
     case BUCKET_4K:
       i = 4 * KILOBYTE;
       break;
+    case BUCKET_16K:
+      i = 16 * KILOBYTE;
+      break;
     case BUCKET_64K:
       i = 64 * KILOBYTE;
       break;
     case BUCKET_1M:
       i = MEGABYTE;
+      break;
+    case BUCKET_2M:
+      i = 2 * MEGABYTE;
       break;
     case BUCKET_16M:
       i = 16 * MEGABYTE;
@@ -59,7 +67,7 @@ public:
       break;
     case BUCKET_KERNELALLOC:
       TODO();
-      ;
+
       break;
     default:
       UNREACHABLE();
@@ -96,7 +104,9 @@ public:
 
 template class Libc3Array<Bucket *>;
 
-#define MAX_BUCKETS (100)
+enum {
+MAX_BUCKETS = (100)
+};
 
 static Bucket arr[MAX_BUCKETS];
 static Libc3Array<Bucket> buckets = Libc3Array<Bucket>();
