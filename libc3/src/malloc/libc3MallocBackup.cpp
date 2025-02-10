@@ -2,7 +2,7 @@
     A primitive bump allocator. It's so simple it cannot fail, but it's super wasteful.
 */
 
-#include "../../include/libc3Helpers.hpp"
+#include "../../include/libc3Debug.hpp"
 #include "../../include/libc3Ints.hpp"
 #include "../../include/libc3Mangled.hpp"
 

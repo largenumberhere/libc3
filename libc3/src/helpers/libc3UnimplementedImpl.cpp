@@ -1,5 +1,5 @@
 #include "../../include/libc3Ints.hpp"
-#include "../../include/libc3Helpers.hpp"
+#include "../../include/libc3Debug.hpp"
 
 void libc3UnimplementedImpl(const char* filePath, size_t line) {
     libc3WriteStdout("Unimplemented feature\n");

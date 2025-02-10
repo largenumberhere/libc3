@@ -1,7 +1,7 @@
 #include "../../include/libc3Ints.hpp"
 #include "../../include/libc3Mangled.hpp"
 #include "../../include/libc3ArrayWrapper.ipp"
-#include "../../include/libc3Helpers.hpp"
+#include "../../include/libc3Debug.hpp"
 #include <stdarg.h>
 
 
