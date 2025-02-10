@@ -6,7 +6,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-void libc3WriteStdout(const char *s);
 
 #ifdef __cplusplus
 }
