@@ -1,8 +1,8 @@
 #ifndef LIBC3ArrayWrapper
 #define LIBC3ArrayWrapper 1
 
-#include "ints.hpp"
-#include "mangled.hpp"
+#include "libc3Ints.hpp"
+#include "libc3Mangled.hpp"
 
 #ifdef __cplusplus
 template <typename T> class Libc3RawArray {

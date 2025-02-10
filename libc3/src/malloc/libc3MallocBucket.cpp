@@ -1,6 +1,6 @@
-#include "../../include/helpers.hpp"
-#include "../../include/ints.hpp"
-#include "../../include/mangled.hpp"
+#include "../../include/libc3Helpers.hpp"
+#include "../../include/libc3Ints.hpp"
+#include "../../include/libc3Mangled.hpp"
 
 /*
     These buckets are intended to approximately match the data cache sizes of

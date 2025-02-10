@@ -1,8 +1,9 @@
-#include "../../../include/ints.hpp"
-#include "../../../include/mangled.hpp"
-#include "../../../include/helpers.hpp"
+#ifndef _LIBC3_FILE_HANDLE_H
+#define _LIBC3_FILE_HANDLE_H
 
-
+#include "../../../include/libc3Ints.hpp"
+#include "../../../include/libc3Mangled.hpp"
+#include "../../../include/libc3Helpers.hpp"
 
 
 struct fileHandleInner_s
@@ -48,3 +49,4 @@ class FileHandle {
             return (int) _inner.fd;
         }
 };
+#endif

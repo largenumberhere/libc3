@@ -1,5 +1,5 @@
-#include "../../include/ints.hpp"
-#include "../../include/mangled.hpp"
+#include "../../include/libc3Ints.hpp"
+#include "../../include/libc3Mangled.hpp"
 
 enum : size_t {
     LEN = 32,	// NB: must be the same as header file

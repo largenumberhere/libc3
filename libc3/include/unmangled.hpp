@@ -1,3 +1,5 @@
+#ifndef _LIBC3_UNMANGLED_H
+#define _LIBC3_UNMANGLED_H
 #include "ints.hpp"
 #include "mangled.hpp"
 #include "stdarg.h"
@@ -21,4 +23,5 @@ void exit(int exit_code) { libc3Exit(exit_code); }
 
 #ifdef __cplusplus
 }
+#endif
 #endif

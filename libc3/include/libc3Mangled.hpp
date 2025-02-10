@@ -1,8 +1,8 @@
 // Expose the unmangled function names for testing purposes
 #ifndef LIBC2_MANGLED
 #define LIBC2_MANGLED
-#include "ints.hpp"
-#include "sys.hpp"  // platform specific internals
+#include "libc3Ints.hpp"
+#include "libc3Sys.hpp"  // platform specific internals
 #include <stdarg.h>
 
 #ifdef __cplusplus

@@ -1,6 +1,7 @@
-#include "../../../include/ints.hpp"
-#include "../../../include/sys.hpp"
+#include "../../../include/libc3Ints.hpp"
+#include "../../../include/libc3Sys.hpp"
 #include "libc3FileHandle.ipp"
+#include "../../../include/libc3Mangled.hpp"
 
 Libc3File *libc3Fopen(const char *pathname,
                       const char *mode) // NOLINT(bugprone-easily-swappable-parameters)
@@ -31,16 +32,3 @@ Libc3File *libc3Fopen(const char *pathname,
   return default_handle.intoPtr();
 };
 
-int libc3Fgetc(Libc3File *stream) {
-  FileHandle f = FileHandle(stream);
-  int fd = f.id();
-
-  char out = 0;
-
-  size_t count = libc3SysRead(fd, &out, 1);
-  if (count == 0) {
-    return LIBC3_EOF;
-  }
-
-  return out;
-}

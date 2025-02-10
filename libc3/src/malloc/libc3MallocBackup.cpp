@@ -2,9 +2,9 @@
     A primitive bump allocator. It's so simple it cannot fail, but it's super wasteful.
 */
 
-#include "../../include/helpers.hpp"
-#include "../../include/ints.hpp"
-#include "../../include/mangled.hpp"
+#include "../../include/libc3Helpers.hpp"
+#include "../../include/libc3Ints.hpp"
+#include "../../include/libc3Mangled.hpp"
 
 #define GIGABYTE ((size_t)1024*1024*1024)
 

@@ -1,4 +1,6 @@
-#include "ints.hpp"
+#ifndef _LIBC3_SYS_H
+#define _LIBC3_SYS_H
+#include "libc3Ints.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -14,4 +16,5 @@ size_t libc3SysRead(int fd, char *buffer, size_t count);
 
 #ifdef __cplusplus
 }
+#endif
 #endif
