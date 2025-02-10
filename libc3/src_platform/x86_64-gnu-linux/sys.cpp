@@ -145,27 +145,23 @@ enum MMAP_PROTECTIONS {
   PROT_EXEC = 4,
 };
 
-
-
 enum MMAP_FLAGS {
-  MAP_ANONYMOUS =32,
+  MAP_ANONYMOUS = 32,
   MAP_PRIVATE = 2,
   MAP_SHARED = 1,
 };
 
 // returns NULL on failure
-void* libc3SysHeapPageAlloc(void* hint, size_t bytes) {
-  void* ptr = libc3SysMmap(hint, bytes, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, 0, 0);
+void *libc3SysHeapPageAlloc(void *hint, size_t bytes) {
+  void *ptr = libc3SysMmap(hint, bytes, PROT_READ | PROT_WRITE,
+                           MAP_PRIVATE | MAP_ANONYMOUS, 0, 0);
   if ((uint64_t)ptr == (uint64_t)-1) {
     return NULL;
-  } 
+  }
 
   return ptr;
 }
-void libc3SysHeapPageFree(void* start, size_t bytes) {
+void libc3SysHeapPageFree(void *start, size_t bytes) {
   libc3SysMunmap(start, bytes);
 }
-
-
-
 }

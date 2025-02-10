@@ -21,7 +21,7 @@ extern "C" void libc3IntegerToString(size_t val, char *buff_out) {
 	
 	char tmp[32] = {0};
 
-	size_t string_pos = 0;
+	ssize_t string_pos = 0;
 
 	size_t c = 0;
 	char m = '\0';
@@ -35,7 +35,7 @@ extern "C" void libc3IntegerToString(size_t val, char *buff_out) {
 	}
 
 	int len = 0;
-	for (ssize_t i = string_pos; i >=0; i--) {
+	for (ssize_t i = string_pos-1; i >=0; i--) {
 		if (tmp[i] == '\0') {continue;}	// workaround for the off-by-one bug hidden in here
 		buff_out[len++] = tmp[i];
 	}

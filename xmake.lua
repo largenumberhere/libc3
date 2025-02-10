@@ -32,9 +32,6 @@ target("libc3")
 -- test with standard library
 target("strlen1a")
     setupTest()
-    add_headerfiles("./libc3/include/sys.hpp")    
-    add_headerfiles("./libc3/include/helpers.hpp")
-    add_headerfiles("./libc3/include/ints.hpp")
 
     add_files("./unit_tests/strlen1a.c" )
     add_tests("strlen1a", {pass_outputs="ok"})
@@ -51,12 +48,17 @@ target("strlen1a")
 
 --     add_tests("strlen1b")
 --     add_tests("strlen1b", {pass_outputs="ok"})
+
+target("fgetc1a")
+    setupTest()
+
+    add_files("./unit_tests/fgetc1a.c")
+    add_tests("fgetc1a", {pass_outputs="ok"})
+    add_headerfiles("./libc3/include/mangled.hpp")
+
     
 target("malloc1a")
     setupTest()
-    add_headerfiles("./libc3/include/sys.hpp")    
-    add_headerfiles("./libc3/include/helpers.hpp")
-    add_headerfiles("./libc3/include/ints.hpp")
 
     add_files("./unit_tests/malloc1a.c")
     add_tests("malloc1a", {pass_outputs="ok"})

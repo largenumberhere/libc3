@@ -115,6 +115,7 @@ static bool firstRun = true;
 extern "C" void *libc3Malloc(size_t size) {
   if (firstRun) {
     firstRun = false;
+    libc3Memset(arr, 0, sizeof(Bucket) * MAX_BUCKETS);
     buckets = Libc3Array<Bucket>((Bucket *)arr, MAX_BUCKETS);
   }
 
@@ -126,10 +127,6 @@ extern "C" void *libc3Malloc(size_t size) {
       libc3WriteStdout("Instantiated\n");
     }
   }
-
-  buckets = Libc3Array<Bucket> ((Bucket*)arr, 0);
-  Bucket invalid = buckets.get(0);
-
   
 
   return NULL;

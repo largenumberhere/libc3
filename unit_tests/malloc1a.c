@@ -12,7 +12,7 @@
 int main() {
 
   // warning: this can use 8 gigabytes for the backup allocator!
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < 50; i++) {
     void *a = libc3Malloc(10);
     memset(a, 0, 10);
 

@@ -1,5 +1,5 @@
-#ifndef _LIBC3_INTS_H
-#define _LIBC3_INTS_H
+#ifndef LIBC3_INTS_H
+#define LIBC3_INTS_H
 #include <stdbool.h>
 #include <stddef.h>
 // #include <stdint.h>

@@ -1,3 +1,6 @@
+#ifndef LIBC3ArrayWrapper
+#define LIBC3ArrayWrapper 1
+
 #include "ints.hpp"
 #include "mangled.hpp"
 
@@ -36,9 +39,11 @@ Libc3RawArray<T>::Libc3RawArray(T *buffer, size_t buffer_items_count)
     : _buff_cap(buffer_items_count), _buff_start(buffer) {
 
   // zero the buffer
-  libc3Memset(buffer, 0, buffer_items_count * sizeof(*buffer));
+  // libc3Memset(buffer, 0, buffer_items_count * sizeof(*buffer));
 }
 
+// Default constructor. Called when type is created without arguments.
+// Uses an array of length 0
 template <typename T> Libc3RawArray<T>::Libc3RawArray() {
   _buff_cap = 0;
   _buff_start = NULL;
@@ -110,7 +115,7 @@ private:
 
 public:
   // unsafe
-  Libc3Array(T *buffer, size_t buffer_len);
+  explicit Libc3Array(T *buffer, size_t buffer_len);
 
   // unsafe
   Libc3Array();
@@ -122,6 +127,8 @@ public:
   T pop();
 
   T get(size_t index);
+
+  size_t len(); 
 
   void set(size_t index, T t);
 };
@@ -176,9 +183,15 @@ template <typename T> void Libc3Array<T>::set(size_t index, T t) {
   this->_rawArray.set(index, t);
 }
 
+// Default constructor. Called when type is created without arguments.
+// Uses an array of length 0
 template <typename T> Libc3Array<T>::Libc3Array() : _rawArray(), _len(0) {
   // TODO: what is this supposed to be used for?
   // _rawArray = Libc3RawArray();
+}
+
+template <typename T> size_t Libc3Array<T>::len() {
+  return this->_len;
 }
 
 #endif
@@ -188,3 +201,5 @@ template <typename T> Libc3Array<T>::Libc3Array() : _rawArray(), _len(0) {
 #define UNREACHABLE() libc3Exit(10);
 
 #define PANIC() libc3Exit(20);
+
+#endif
