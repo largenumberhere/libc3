@@ -71,3 +71,10 @@ target("strcmp1a")
     add_files("./unit_tests/strcmp1a.c")
     add_tests("strcmp1a", {pass_outputs="ok"})
     add_headerfiles("./libc3/include/mangled.hpp")
+
+target("strncmp1a")
+    setupTest()
+
+    add_files("./unit_tests/strncmp1a.c")
+    add_tests("strncmp1a", {pass_outputs="ok"})
+    add_headerfiles("./libc3/include/mangled.hpp")

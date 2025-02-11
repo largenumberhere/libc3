@@ -18,7 +18,7 @@ void libc3Free(void *ptr);
 void *libc3Memset(void *s, int c, size_t n);
 void *libc3Memcpy(void *dest, const void * src, size_t n);
 int libc3Strcmp(const char *s1, const char *s2);
-
+int libc3Strncmp(const char *s1, const char *s2, size_t n);
 
 // some internals
 void libc3WriteStdout(const char *s);
