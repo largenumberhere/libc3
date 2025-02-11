@@ -1,28 +1,18 @@
 #include "../../include/libc3Ints.hpp"
 #include "../../include/libc3Mangled.hpp"
 
-enum : size_t {
-    LEN = 32,	// NB: must be the same as header file
-};
-
-// #define LEN 32	//
-
-extern "C" void libc3IntegerToString(size_t val, char *buff_out) {
-	libc3Memset(buff_out, 0, LEN);
-
-	int len_outa = 0;
-	int* len_out = &len_outa;
+// A buffer of at least 21 characters is needed. 
+// Nul-terminator is added for you.
+// returns the length of the characters used
+extern "C" size_t libc3IntegerToString(size_t val, char *buff_out) {
+	ssize_t buff_len = 0;
 
 	if (val ==0) {
 		buff_out[0] = '0';
-		*len_out = 1;
-		return;
+    buff_len++;
+    return buff_len;
 	}
 	
-	char tmp[32] = {0};
-
-	ssize_t string_pos = 0;
-
 	size_t c = 0;
 	char m = '\0';
 
@@ -31,16 +21,21 @@ extern "C" void libc3IntegerToString(size_t val, char *buff_out) {
 		c = val % 10;
 		val = val / 10;
 		m = (char) '0' + c;
-		tmp[string_pos++] = m;
+		buff_out[buff_len++] = m;
 	}
 
-	int len = 0;
-	for (ssize_t i = string_pos-1; i >=0; i--) {
-		if (tmp[i] == '\0') {continue;}	// workaround for the off-by-one bug hidden in here
-		buff_out[len++] = tmp[i];
-	}
-	
-	*len_out = len;
-	
-    return;
+  // reverese the array
+  size_t left_cursor = 0;
+  size_t right_cursor = buff_len-1;
+  for (;  (left_cursor < buff_len/2); left_cursor++, right_cursor--)
+  {
+    char left = buff_out[left_cursor];
+    buff_out[left_cursor] = buff_out[right_cursor];
+    buff_out[right_cursor] = left;
+  }
+  
+  // ensure buffer is nul-terminated
+  buff_out[buff_len] = '\0';
+
+  return buff_len;
 }

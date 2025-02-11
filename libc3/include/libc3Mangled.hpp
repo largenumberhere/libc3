@@ -22,7 +22,8 @@ int libc3Strncmp(const char *s1, const char *s2, size_t n);
 
 // some internals
 void libc3WriteStdout(const char *s);
-void libc3IntegerToString(size_t value, char *out);
+size_t libc3IntegerToString(size_t value, char *out);
+size_t libc3SignedIntegerToString(ssize_t val, char* buff_out);
 void libc3UnimplementedImpl(const char* filePath, size_t line);
 void libc3UnreachableImpl(const char* filePath, size_t line);
 
