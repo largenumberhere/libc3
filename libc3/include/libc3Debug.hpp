@@ -13,10 +13,12 @@ extern "C" {
 
 #include "libc3ArrayWrapper.ipp"
 
-void libc3UnimplementedImpl(const char* filePath, size_t line);
 
 
 #define UNIMPLEMENTED() \
     libc3UnimplementedImpl(__FILE__, __LINE__);
+
+#define UNREACHABE() \
+    libc3UnreachableImpl(__FILE__, __LINE__);
 
 #endif

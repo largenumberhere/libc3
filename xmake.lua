@@ -63,3 +63,11 @@ target("malloc1a")
     add_files("./unit_tests/malloc1a.c")
     add_tests("malloc1a", {pass_outputs="ok"})
     add_headerfiles("./libc3/include/mangled.hpp")
+
+
+target("strcmp1a")
+    setupTest()
+
+    add_files("./unit_tests/strcmp1a.c")
+    add_tests("strcmp1a", {pass_outputs="ok"})
+    add_headerfiles("./libc3/include/mangled.hpp")

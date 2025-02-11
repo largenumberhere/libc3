@@ -17,10 +17,14 @@ void libc3Free(void *ptr);
 // string.h
 void *libc3Memset(void *s, int c, size_t n);
 void *libc3Memcpy(void *dest, const void * src, size_t n);
+int libc3Strcmp(const char *s1, const char *s2);
+
 
 // some internals
 void libc3WriteStdout(const char *s);
 void libc3IntegerToString(size_t value, char *out);
+void libc3UnimplementedImpl(const char* filePath, size_t line);
+void libc3UnreachableImpl(const char* filePath, size_t line);
 
 // file
 typedef struct
