@@ -196,10 +196,6 @@ template <typename T> size_t Libc3Array<T>::len() {
 
 #endif
 
-#define TODO() libc3Exit(5);
 
-#define UNREACHABLE() libc3Exit(10);
-
-#define PANIC() libc3Exit(20);
 
 #endif

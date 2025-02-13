@@ -1,6 +1,7 @@
 #include "../../include/libc3Mangled.hpp"
 #include "../../include/libc3Ints.hpp"
 #include "../../include/libc3ArrayWrapper.ipp"
+#include "../../include/libc3Debug.hpp"
 
 int libc3Strncmp(const char *s1, const char *s2, size_t n) {
     Libc3Array s1_arr = Libc3Array(s1, libc3Strlen(s1)+1);
@@ -39,4 +40,5 @@ int libc3Strncmp(const char *s1, const char *s2, size_t n) {
     }
 
     UNREACHABLE();
+    return 0;   // silence error
 }

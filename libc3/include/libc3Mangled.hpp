@@ -26,11 +26,13 @@ size_t libc3IntegerToString(size_t value, char *out);
 size_t libc3SignedIntegerToString(ssize_t val, char* buff_out);
 void libc3UnimplementedImpl(const char* filePath, size_t line);
 void libc3UnreachableImpl(const char* filePath, size_t line);
+void libc3TodoImpl(const char* filePath, size_t line, const char* message);
+void libc3PanicImpl(const char* filePath, size_t line, const char* message);
 
 // file
 typedef struct
 {
-    char _padding[64];
+    char _padding[64];  // TODO: change to size_t, this is too big and wrong aligment
 } Libc3File;
 
 #define LIBC3_EOF ((int)-1)

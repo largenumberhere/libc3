@@ -18,7 +18,13 @@ extern "C" {
 #define UNIMPLEMENTED() \
     libc3UnimplementedImpl(__FILE__, __LINE__);
 
-#define UNREACHABE() \
+#define UNREACHABLE() \
     libc3UnreachableImpl(__FILE__, __LINE__);
 
+#define TODO(...) \
+    libc3TodoImpl(__FILE__, __LINE__, __VA_ARGS__ "");
+
+#define PANIC(...) \
+    libc3PanicImpl( __FILE__, __LINE__, __VA_ARGS__ "");\
+    
 #endif

@@ -3,7 +3,7 @@
 #include "../../include/libc3Mangled.hpp"
 
 /*
-    These buckets are intended to approximately match the data cache sizes of
+    These buckets are intended to approximately model the data cache sizes of
    some contemporary CPUS of 2025. Namely, the Ryzen 5 2600, Ryzen AMD Ryzen™ 9
    9950X, and Intel i9-13900k.
 
@@ -34,10 +34,12 @@ enum BYTESIZES : size_t {
 
 class Bucket {
 private:
-  Libc3RawArray<char> _allocatedBuffer;
-  BUCKET_KIND _bucketKind;
+  Libc3RawArray<char> _allocatedBuffer = {};
+  BUCKET_KIND _bucketKind = {};
 
 public:
+  Bucket() {}
+
   size_t getBucketCapacity() {
     size_t i = 0;
     switch (_bucketKind) {
@@ -92,6 +94,7 @@ public:
     }
 
     TODO();
+    TODO("mrrr")
   }
 
   bool freeItem(void *ptr) {
