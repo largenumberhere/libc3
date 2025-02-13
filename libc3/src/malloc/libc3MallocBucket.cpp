@@ -107,17 +107,15 @@ public:
 
 template class Libc3Array<Bucket *>;
 
-enum {
-MAX_BUCKETS = (100)
-};
+enum { MAX_BUCKETS = (100) };
 
 static Bucket arr[MAX_BUCKETS];
 static Libc3Array<Bucket> buckets = Libc3Array<Bucket>();
-static bool firstRun = true;
+static bool first_run = true;
 
 extern "C" void *libc3Malloc(size_t size) {
-  if (firstRun) {
-    firstRun = false;
+  if (first_run) {
+    first_run = false;
     libc3Memset(arr, 0, sizeof(Bucket) * MAX_BUCKETS);
     buckets = Libc3Array<Bucket>((Bucket *)arr, MAX_BUCKETS);
   }
@@ -130,9 +128,7 @@ extern "C" void *libc3Malloc(size_t size) {
       libc3WriteStdout("Instantiated\n");
     }
   }
-  
 
   return NULL;
 }
 extern "C" void libc3Free(void *ptr) { return; }
-

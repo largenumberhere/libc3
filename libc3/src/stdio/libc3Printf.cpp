@@ -1,9 +1,8 @@
-#include "../../include/libc3Ints.hpp"
-#include "../../include/libc3Mangled.hpp"
 #include "../../include/libc3ArrayWrapper.ipp"
 #include "../../include/libc3Debug.hpp"
+#include "../../include/libc3Ints.hpp"
+#include "../../include/libc3Mangled.hpp"
 #include <stdarg.h>
-
 
 static void writeChar(char c) {
   char tmp[2] = {0};
@@ -11,18 +10,16 @@ static void writeChar(char c) {
   libc3WriteStdout(tmp);
 }
 
-
 extern "C" size_t libc3PrintfA(const char *fmt, va_list *args) {
   size_t len = libc3Strlen(fmt);
   Libc3Array array = Libc3Array(fmt, len);
-
 
   // check if fmt contains %
   for (ssize_t i = 0; i < array.len(); i++) {
     char c = array.get(i);
     if (c == '%') {
-      if (i+1 < array.len()) {
-        char c2 = array.get(i+1);
+      if (i + 1 < array.len()) {
+        char c2 = array.get(i + 1);
         if (c2 == 'i') {
 
         } else if (c2 == 's') {

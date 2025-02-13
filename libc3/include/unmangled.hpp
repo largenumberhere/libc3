@@ -1,7 +1,7 @@
 #ifndef _LIBC3_UNMANGLED_H
 #define _LIBC3_UNMANGLED_H
-#include "ints.hpp"
-#include "mangled.hpp"
+#include "libc3Ints.hpp"
+#include "libc3Mangled.hpp"
 #include "stdarg.h"
 #ifdef __cplusplus
 extern "C" {
